@@ -381,3 +381,194 @@ p {
     transition: none !important;
   }
 }
+
+/* Homepage refinements */
+
+/* Black text throughout, with blue reserved for subtle backgrounds */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+strong,
+.section-label,
+.card-meta,
+.entry-date,
+.tag-list li,
+.site-footer {
+  color: #171717;
+}
+
+/* Keep links black, with an underline to identify them */
+a {
+  color: #171717;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: #171717;
+  text-decoration-color: #2859bd;
+}
+
+/* A small blue detail without coloring all the text */
+.section-label {
+  display: inline-block;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #2859bd;
+  font-weight: 600;
+}
+
+/* About: text wraps around the portrait */
+.hero {
+  display: block;
+  padding-block: 64px;
+}
+
+.hero-copy {
+  max-width: 900px;
+}
+
+.about-photo {
+  float: right;
+  width: 260px;
+  max-width: 40%;
+  height: auto;
+  margin: 4px 0 20px 28px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-copy .lead,
+.hero-copy p:not(.section-label) {
+  color: #171717;
+}
+
+.hero-actions {
+  clear: both;
+}
+
+/* Soft blue buttons with black text */
+.button,
+.button-secondary {
+  background: #edf2fc;
+  color: #171717;
+  border: 1px solid #cbd7ed;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.button:hover,
+.button-secondary:hover {
+  background: #e0e9fa;
+  color: #171717;
+  border-color: #9db7e8;
+  transform: none;
+}
+
+/* Research interests as readable paragraphs */
+.interest-list {
+  max-width: 800px;
+  margin-block: 24px;
+}
+
+.interest-list p {
+  margin-bottom: 20px;
+  color: #171717;
+}
+
+.interest-list strong {
+  font-weight: 700;
+}
+
+/* News entries */
+.entry p {
+  color: #171717;
+}
+
+/* Project cards: structured but not overly corporate */
+.card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  padding: 24px;
+  background: #f5f7fb;
+  border: 1px solid #dce3ef;
+  border-radius: 10px;
+  transition: border-color 180ms ease,
+              background-color 180ms ease;
+}
+
+.card:hover {
+  background: #eff4fc;
+  border-color: #9db7e8;
+  transform: none;
+}
+
+.card p {
+  color: #171717;
+}
+
+.card-meta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.tag-list {
+  gap: 8px;
+}
+
+.tag-list li {
+  padding: 3px 9px;
+  background: #fff;
+  border: 1px solid #dce3ef;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+/* Section heading and "View all" link */
+.section-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.section-title-row h2 {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .hero {
+    padding-block: 40px;
+  }
+
+  .about-photo {
+    width: 38%;
+    max-width: 160px;
+    margin-left: 16px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-photo {
+    float: none;
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    margin: 0 0 20px;
+  }
+}
