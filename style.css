@@ -1,21 +1,14 @@
-/* 1. Design system */
+/* Basics */
 :root {
-  --color-bg: #f8f9fb;
-  --color-surface: #ffffff;
-  --color-text: #17243a;
-  --color-muted: #667085;
-  --color-accent: #2563eb;
-  --color-accent-light: #eaf1ff;
-  --color-border: #dfe4ec;
-
+  --bg: #fff;
+  --text: #202735;
+  --muted: #626b78;
+  --blue: #2859bd;
+  --border: #e2e5e9;
+  --content-width: 1040px;
   --font-body: Arial, Helvetica, sans-serif;
-  --content-width: 1100px;
-
-  --radius-sm: 6px;
-  --radius-md: 12px;
 }
 
-/* 2. Reset */
 * {
   box-sizing: border-box;
 }
@@ -26,12 +19,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -41,23 +33,24 @@ img {
 }
 
 a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 180ms ease;
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 150ms ease;
 }
 
 a:hover {
-  color: #1747b0;
+  text-decoration-color: currentColor;
 }
 
 a:focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 2px solid var(--blue);
   outline-offset: 4px;
 }
 
-/* 3. Shared layout */
 .container {
-  width: min(var(--content-width), calc(100% - 48px));
+  width: min(var(--content-width), calc(100% - 40px));
   margin-inline: auto;
 }
 
@@ -66,17 +59,15 @@ main {
 }
 
 .page-section {
-  padding-block: 64px;
-  border-bottom: 1px solid var(--color-border);
+  padding-block: 42px;
+  border-bottom: 1px solid var(--border);
 }
 
 .section-label {
-  margin: 0 0 12px;
-  color: var(--color-accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 h1,
@@ -84,22 +75,24 @@ h2,
 h3,
 h4 {
   margin-top: 0;
-  color: var(--color-text);
-  line-height: 1.2;
-  letter-spacing: -0.035em;
+  color: var(--text);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 p {
@@ -107,24 +100,20 @@ p {
 }
 
 .lead {
-  max-width: 680px;
-  color: var(--color-muted);
-  font-size: 1.15rem;
+  max-width: 660px;
+  color: var(--muted);
+  font-size: 1.05rem;
   line-height: 1.8;
 }
 
-/* 4. Navigation */
+/* Navigation */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgb(248 249 251 / 94%);
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(12px);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar {
-  min-height: 76px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -132,21 +121,20 @@ p {
 }
 
 .brand {
-  color: var(--color-text);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 600;
 }
 
 .brand:hover {
-  color: var(--color-accent);
+  color: var(--blue);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 28px;
+  gap: 22px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -155,29 +143,27 @@ p {
 .nav-links a {
   display: inline-block;
   padding-block: 8px;
-  color: var(--color-muted);
-  font-size: 0.9rem;
-  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  color: var(--color-accent);
+  color: var(--blue);
 }
 
-/* 5. Homepage introduction */
+/* Homepage */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(200px, 0.7fr);
-  align-items: center;
-  gap: 64px;
-  padding-block: 88px;
-  border-bottom: 1px solid var(--color-border);
+  grid-template-columns: minmax(0, 1.5fr) minmax(180px, 0.65fr);
+  align-items: start;
+  gap: 48px;
+  padding-block: 60px;
+  border-bottom: 1px solid var(--border);
 }
 
 .hero h1 {
-  max-width: 700px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .hero-copy {
@@ -186,169 +172,144 @@ p {
 
 .hero-image {
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   aspect-ratio: 4 / 5;
   justify-self: end;
   object-fit: cover;
   object-position: center top;
-  border-radius: var(--radius-md);
-  background: var(--color-accent-light);
+  background: #f0f3f8;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 20px;
-  margin-top: 28px;
+  gap: 18px;
+  margin-top: 22px;
 }
 
-/* 6. Buttons and links */
+/* Simple links and optional buttons */
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 10px 18px;
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-sm);
-  background: var(--color-accent);
-  color: #ffffff;
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--blue);
+  background: var(--blue);
+  color: white;
   font: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition:
-    background 180ms ease,
-    transform 180ms ease;
+  font-size: 0.92rem;
 }
 
 .button:hover {
-  background: #1747b0;
-  color: #ffffff;
-  transform: translateY(-1px);
+  background: #1d438f;
+  color: white;
 }
 
 .button-secondary {
   background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-border);
+  color: var(--blue);
 }
 
 .button-secondary:hover {
-  background: var(--color-accent-light);
-  color: var(--color-accent);
+  background: #f3f6fc;
+  color: var(--blue);
 }
 
-/* 7. Cards and project grids */
+/* Projects */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 32px;
+  gap: 32px 36px;
+  margin-top: 28px;
 }
 
 .card {
   min-width: 0;
-  padding: 28px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  transition:
-    border-color 180ms ease,
-    transform 180ms ease;
-}
-
-.card:hover {
-  border-color: #a9c3fa;
-  transform: translateY(-2px);
+  padding: 0 0 22px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .card h3 {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .card p {
-  color: var(--color-muted);
+  color: var(--muted);
 }
 
 .card-meta {
-  margin-bottom: 12px;
-  color: var(--color-accent);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
+  gap: 8px 14px;
+  margin-top: 14px;
   padding: 0;
   list-style: none;
 }
 
 .tag-list li {
-  padding: 4px 10px;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  color: var(--color-muted);
-  font-size: 0.8rem;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
-/* 8. Interior page headings */
+/* Interior pages */
 .page-heading {
-  padding-block: 72px 48px;
-  border-bottom: 1px solid var(--color-border);
+  padding-block: 48px 32px;
+  border-bottom: 1px solid var(--border);
 }
 
 .page-heading h1 {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .page-heading .lead {
   margin-bottom: 0;
 }
 
-/* 9. Publications and research entries */
+/* Research and publication entries */
 .entry-list {
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .entry {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 32px;
-  padding-block: 28px;
-  border-bottom: 1px solid var(--color-border);
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
 .entry-date {
-  color: var(--color-muted);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
 .entry h3 {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .entry p {
   margin-bottom: 10px;
-  color: var(--color-muted);
+  color: var(--muted);
 }
 
-/* 10. Contact and footer */
+/* Contact and footer */
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
 }
 
 .site-footer {
-  padding-block: 28px;
-  color: var(--color-muted);
-  font-size: 0.85rem;
+  padding-block: 24px;
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .footer-inner {
@@ -356,61 +317,54 @@ p {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
 }
 
-/* 11. Responsive layout */
+/* Mobile */
 @media (max-width: 720px) {
   .container {
-    width: min(100% - 32px, var(--content-width));
+    width: calc(100% - 32px);
   }
 
   .navbar {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
-    padding-block: 16px;
+    gap: 4px;
+    padding-block: 12px;
   }
 
   .nav-links {
-    gap: 18px;
-  }
-
-  .nav-links a {
-    font-size: 0.85rem;
+    gap: 8px 18px;
   }
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding-block: 56px;
+    gap: 24px;
+    padding-block: 38px;
   }
 
   .hero-image {
-    max-width: 220px;
+    max-width: 190px;
     justify-self: start;
   }
 
   .page-section {
-    padding-block: 44px;
+    padding-block: 32px;
   }
 
   .page-heading {
-    padding-block: 52px 36px;
+    padding-block: 36px 26px;
   }
 
   .card-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .entry {
     grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .card {
-    padding: 22px;
+    gap: 4px;
   }
 
   .footer-inner {
@@ -419,13 +373,11 @@ p {
   }
 }
 
-/* 12. Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+    transition: none !important;
   }
 }
